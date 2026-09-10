@@ -14,14 +14,14 @@ import java.util.Map;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(RestClientResponseException.class)
-    public ResponseEntity<Map<String, Object>> manejarErrorWorkorders(
+    public ResponseEntity<Map<String, Object>> manejarErrorMicroservicio(
             RestClientResponseException ex) {
 
         Map<String, Object> body = new LinkedHashMap<>();
 
         body.put("timestamp", LocalDateTime.now());
         body.put("status", ex.getStatusCode().value());
-        body.put("error", "Error desde Workorders");
+        body.put("error", "Error desde microservicio");
         body.put("message", ex.getResponseBodyAsString());
 
         return ResponseEntity
@@ -37,8 +37,11 @@ public class GlobalExceptionHandler {
 
         body.put("timestamp", LocalDateTime.now());
         body.put("status", 503);
-        body.put("error", "Workorders no disponible");
-        body.put("message", "No fue posible conectar con el microservicio Workorders");
+        body.put("error", "Microservicio no disponible");
+        body.put(
+                "message",
+                "No fue posible conectar con el microservicio solicitado"
+        );
 
         return ResponseEntity
                 .status(503)
