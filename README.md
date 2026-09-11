@@ -1,27 +1,3 @@
-```text
-# digitalfix-ms-bff
-
-BFF del proyecto DigitalFix.
-```
-
-Así que ese sí hay que dejarlo completo antes de pasar `development → main`.
-
-Entra a:
-
-```cmd
-C:\Users\sebai\Documents\DigitalFix\digitalfix-ms-bff
-```
-
-y ejecuta primero:
-
-```cmd
-git checkout development
-git pull origin development
-notepad README.md
-```
-
-Reemplaza **todo** el README por esto:
-
 ````markdown
 # DigitalFix - BFF
 
