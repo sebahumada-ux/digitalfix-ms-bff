@@ -1,4 +1,3 @@
-````markdown
 # DigitalFix - BFF
 
 Backend for Frontend (BFF) del proyecto **DigitalFix**.
