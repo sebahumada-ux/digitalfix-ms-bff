@@ -36,6 +36,10 @@ public class SecurityConfig {
                         // Errores
                         .requestMatchers("/error").permitAll()
 
+                        // CLIENTES: listado y registro solo para operadores
+                        .requestMatchers("/api/bff/clientes", "/api/bff/clientes/**")
+                        .hasAnyRole("ADMIN", "SUPERVISOR")
+
                         // CATÁLOGO
                         // Solo Admin y Supervisor
                         .requestMatchers("/api/bff/catalog/**")
