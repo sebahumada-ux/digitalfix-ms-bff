@@ -4,6 +4,7 @@ import cl.duoc.digitalfix.bff.client.WorkordersClient;
 import cl.duoc.digitalfix.bff.dto.ActualizarEstadoRequest;
 import cl.duoc.digitalfix.bff.dto.CrearWorkOrderRequest;
 import cl.duoc.digitalfix.bff.dto.WorkOrderResponse;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -36,7 +37,7 @@ public class BffWorkordersController {
 
     @PostMapping
     public ResponseEntity<WorkOrderResponse> crear(
-            @RequestBody CrearWorkOrderRequest request) {
+            @Valid @RequestBody CrearWorkOrderRequest request) {
 
         return ResponseEntity
                 .status(HttpStatus.CREATED)
@@ -46,7 +47,7 @@ public class BffWorkordersController {
     @PutMapping("/{id}/status")
     public ResponseEntity<WorkOrderResponse> actualizarEstado(
             @PathVariable Long id,
-            @RequestBody ActualizarEstadoRequest request) {
+            @Valid @RequestBody ActualizarEstadoRequest request) {
 
         return ResponseEntity.ok(
                 workordersClient.actualizarEstado(id, request)
