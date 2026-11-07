@@ -10,6 +10,7 @@ public record WorkOrderResponse(
         Long tecnicoId,
         String estado,
         LocalDateTime fechaCreacion,
-        LocalDateTime fechaActualizacion
+        LocalDateTime fechaActualizacion,
+        String observacionTecnica
 ) {
 }
